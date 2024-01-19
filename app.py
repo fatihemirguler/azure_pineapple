@@ -5,8 +5,11 @@ from pymongo import MongoClient
 
 app = Flask(__name__)
 
-# Set up MongoDB connection
-client = MongoClient("mongodb://pineapple:aWU8ztWJpMUakEscOLItkXYzhKnXdvqRknbIzqUymFNew0ZACmfhbR3XhJxdxtl65rKv3EjgAIerACDbOq7oAA==@pineapple.mongo.cosmos.azure.com:10255/?ssl=true&retrywrites=false&replicaSet=globaldb&maxIdleTimeMS=120000&appName=@pineapple@")
+client = MongoClient("mongodb://pineapple:aWU8ztWJpMUakEscOLItkXYzhKnXdvqRknbIzqUymFNew"
+                     "0ZACmfhbR3XhJxdxtl65rKv3EjgAIerACDbOq7oAA"
+                     "=@pineapple.mongo.cosmos.azure.com:10255/?ss"
+                     "l=true&retrywrites=false&replicaSet=globaldb&maxIdleTimeMS=1200"
+                     "00&appName=@pineapple@")
 db = client["PineappleDB"]
 collection = db["bookstore"]
 
@@ -127,4 +130,4 @@ def format_book(book):
     return formatted_book
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5009, debug=True)

@@ -1,0 +1,68 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: myapp-service
+  namespace: default
+  uid: c79d8bee-f5f0-438c-84b5-1f1df1b491cf
+  resourceVersion: '925878'
+  creationTimestamp: '2024-01-07T22:55:28Z'
+  finalizers:
+    - service.kubernetes.io/load-balancer-cleanup
+  managedFields:
+    - manager: Mozilla
+      operation: Update
+      apiVersion: v1
+      time: '2024-01-10T16:40:47Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:spec:
+          f:allocateLoadBalancerNodePorts: {}
+          f:externalTrafficPolicy: {}
+          f:internalTrafficPolicy: {}
+          f:ports:
+            .: {}
+            k:{"port":80,"protocol":"TCP"}:
+              .: {}
+              f:port: {}
+              f:protocol: {}
+              f:targetPort: {}
+          f:selector: {}
+          f:sessionAffinity: {}
+          f:type: {}
+    - manager: cloud-controller-manager
+      operation: Update
+      apiVersion: v1
+      time: '2024-01-10T16:40:47Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:finalizers:
+            .: {}
+            v:"service.kubernetes.io/load-balancer-cleanup": {}
+        f:status:
+          f:loadBalancer:
+            f:ingress: {}
+      subresource: status
+spec:
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5009
+      nodePort: 31000
+  selector:
+    app: myapp
+  clusterIP: 10.0.12.136
+  clusterIPs:
+    - 10.0.12.136
+  type: LoadBalancer
+  sessionAffinity: None
+  externalTrafficPolicy: Cluster
+  ipFamilies:
+    - IPv4
+  ipFamilyPolicy: SingleStack
+  allocateLoadBalancerNodePorts: true
+  internalTrafficPolicy: Cluster
+status:
+  loadBalancer:
+    ingress:
+      - ip: 104.42.55.31
