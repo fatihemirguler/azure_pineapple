@@ -199,8 +199,7 @@ Integrate an existing ACR with an existing AKS cluster using the az aks update c
    `az aks update -n <myAKSCluster> -g <myResourceGroup> --attach-acr <acr-name>`
 
 ### Checking the status of application
-After we deploy the application, we need to check the status of the service and pods. We can both check it either with Azure Portal or kubectl. For example:
-![image.png](/.attachments/image-f833661d-31b6-48f2-96cb-7a0692cc5e3a.png)
+After we deploy the application, we need to check the status of the service and pods. We can both check it either with Azure Portal or kubectl.
 Everybody can reach the app with this external-ip `104.42.55.31` via passing into url (such as  http://104.42.55.31/books). 
 
 
@@ -209,7 +208,7 @@ We can use the app externally and access the endpoint for getting all books with
 
 For example we can use the following url to get specific book with hitting the getbyid endpoint:
 http://104.42.55.31/books/659829f3a5e6cecfe3f85308
-![Ekran Resmi 2024-01-10 20.38.39.png](/.attachments/Ekran%20Resmi%202024-01-10%2020.38.39-020c0f63-17d0-4f00-8619-5d29ea955364.png)
+
 # 2. Deploying MongoDB on AKS
 
 This document provides an overview of the MongoDB deployment in the Kubernetes cluster. MongoDB is a NoSQL database used to store and manage data for the application. In this deployment, Cosmos DB is utilized as the backend to provide globally distributed, multi-model database services. So first we need to create CosmosDB with MongoDB API resource instance under our resource group.
@@ -230,21 +229,10 @@ A Kubernetes Service named my-mongodb-service exposes the MongoDB deployment wit
 
 ##Cosmos DB Integration
 Cosmos DB is utilized as the backend for MongoDB. The MongoDB connection string includes the Cosmos DB details. After we created a CosmosDB with MongoDB API resource instance we can use its connection string.
-![image.png](/.attachments/image-180195fc-a7c3-40a0-9057-a18f5f6d3747.png)
  
-In the application we will use this connection string to reach to MongoDB client, for python:
+In the application we will use this connection string to reach to MongoDB client.
 
-![Ekran Resmi 2024-01-10 22.52.57.png](/.attachments/Ekran%20Resmi%202024-01-10%2022.52.57-f9cce27b-de7b-463f-b1ad-e6d7f711ee97.png)
-
-
-
-##Checking the status of the CosmosDB with MongoDB API instance and accessing it globally.
-
-![image.png](/.attachments/image-4b2cf75f-d0de-446f-936a-14960778c02b.png)
-
-After we see it running, we can reach it with username and secret that CosmosDB provide for us:
-
-![image.png](/.attachments/image-fc104b76-4017-4f05-944d-a74270aeecbf.png)
+After we see it running, we can reach it with username and secret that CosmosDB provide for us.
 
 Then we can run this code:
 
@@ -252,7 +240,6 @@ Then we can run this code:
 
 So when we do this we will be inside of the database.
 
-![image.png](/.attachments/image-e0793698-f1fd-4949-909c-b749571ac49d.png)
 
 
 
